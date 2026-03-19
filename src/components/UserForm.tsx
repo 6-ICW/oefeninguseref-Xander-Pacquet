@@ -7,7 +7,7 @@ export default function UserForm() {
             <input type="text" id="lastName" />
             <input type="text" id="age" />
             <select name="typeUser" id="typeUser">
-                {/* type medewerkers */}
+                type medewerkers
             </select>
             <button type="submit">Registreer</button>
         </form>
