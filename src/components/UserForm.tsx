@@ -1,15 +1,24 @@
-export default function UserForm() {
+import { useRef } from "react"
+
+interface Porps{
+    onSubmit: (value?: string) => void
+}
+
+export default function UserForm({onSubmit}:Porps) {
+    let firstName = useRef<HTMLInputElement>(null)
+    let lastName = useRef<HTMLInputElement>(null)
+    let typeUser = useRef<HTMLInputElement>(null)
 
 
     return (<>
         <form>
-            <input type="text" id="firstName" />
-            <input type="text" id="lastName" />
-            <input type="text" id="age" />
+            <input ref={firstName} type="text" id="firstName" />
+            <input ref={lastName} type="text" id="lastName" />
+            <input ref={typeUser} type="text" id="age" />
             <select name="typeUser" id="typeUser">
-                type medewerkers
+                {/* type medewerkers */}
             </select>
-            <button type="submit">Registreer</button>
+            <button onClick={() => onSubmit(firstName.current?.value)} type="submit">Registreer</button>
         </form>
     </>)
 }
